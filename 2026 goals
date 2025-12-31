@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our 2026 Dreams Together 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .couple-names {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .name-input {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            padding: 12px 20px;
+            color: white;
+            font-size: 1.1rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .name-input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .name-input:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255,255,255,0.3);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .goal-category {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .goal-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .travel { background: linear-gradient(45deg, #ff6b6b, #ee5a24); }
+        .personal { background: linear-gradient(45deg, #4ecdc4, #44a08d); }
+        .relationship { background: linear-gradient(45deg, #fd79a8, #e84393); }
+        .career { background: linear-gradient(45deg, #a8e6cf, #7fcdcd); }
+        .health { background: linear-gradient(45deg, #ffd93d, #ff6b35); }
+        .financial { background: linear-gradient(45deg, #74b9ff, #0984e3); }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .goal-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        .goal-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .add-goal-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .add-goal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .goals-list {
+            list-style: none;
+        }
+
+        .goal-item {
+            background: #f8f9ff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .goal-item:hover {
+            background: #f0f2ff;
+            transform: translateX(5px);
+        }
+
+        .goal-text {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .goal-checkbox {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .goal-item.completed .goal-text {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .delete-btn {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background: #ff3742;
+        }
+
+        .progress-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .motivation-quote {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #667eea;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255,255,255,0.1);
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5rem; }
+            .couple-names { flex-direction: column; align-items: center; }
+            .main-content { grid-template-columns: 1fr; }
+            .motivation-quote { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="hearts"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Our 2026 Dreams Together 💕</h1>
+            <p>Building our future, one goal at a time</p>
+            
+            <div class="couple-names">
+                <input type="text" class="name-input" id="name1" placeholder="Your name...">
+                <span style="color: white; font-size: 2rem;">&</span>
+                <input type="text" class="name-input" id="name2" placeholder="Your partner's name...">
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="goal-category">
+                <div class="category-header">
+                    <div class="category-icon travel"><i class="fas fa-plane"></i></div>
+                    <h3 class="category-title">Travel Adventures ✈️</h3>
+                </div>
+                <input type="text" class="goal-input" id="travel-input" placeholder="Where do we want to explore together?">
+                <button class="add-goal-btn" onclick="addGoal('travel')"><i class="fas fa-plus"></i> Add Travel Goal</button>
+                <ul class="goals-list" id="travel-goals"></ul>
+            </div>
+
+            <div class="goal-category">
+                <div class="category-header">
+                    <div class="category-icon personal"><i class="fas fa-user-graduate"></i></div>
+                    <h3 class="category-title">Personal Growth 📚</h3>
+                </div>
+                <input type="text" class="goal-input" id="personal-input" placeholder="What skills will we learn?">
+                <button class="add-goal-btn" onclick="addGoal('personal')"><i class="fas fa-plus"></i> Add Personal Goal</button>
+                <ul class="goals-list" id="personal-goals"></ul>
+            </div>
+
+            <div class="goal-category">
+                <div class="category-header">
+                    <div class="category-icon relationship"><i class="fas fa-heart"></i></div>
+                    <h3 class="category-title">Relationship Goals 💑</h3>
+                </div>
+                <input type="text" class="goal-input" id="relationship-input" placeholder="How will we grow stronger together?">
+                <button class="add-goal-btn" onclick="addGoal('relationship')"><i class="fas fa-plus"></i> Add Relationship Goal</button>
+                <ul class="goals-list" id="relationship-goals"></ul>
+            </div>
+
+            <div class="goal-category">
+                <div class="category-header">
+                    <div class="category-icon career"><i class="fas fa-briefcase"></i></div>
+                    <h3 class="category-title">Career & Ambitions 🚀</h3>
+                </div>
+                <input type="text" class="goal-input" id="career-input" placeholder="What professional heights will we reach?">
+                <button class="add-goal-btn" onclick="addGoal('career')"><i class="fas fa-plus"></i> Add Career Goal</button>
+                <ul class="goals-list" id="career-goals"></ul>
+            </div>
+
+            <div class="goal-category">
+                <div class="category-header">
+                    <div class="category-icon health"><i class="fas fa-dumbbell"></i></div>
+                    <h3 class="category-title">Health & Wellness 🏃‍♀️</h3>
+                </div>
+                <input type="text" class="goal-input" id="health-input" placeholder="How will we stay healthy together?">
+                <button class="add-goal-btn" onclick="addGoal('health')"><i class="fas fa-plus"></i> Add Health Goal</button>
+                <ul class="goals-list" id="health-goals"></ul>
+            </div>
+
+            <div class="goal-category">
+                <div class="category-header">
+                    <div class="category-icon financial"><i class="fas fa-piggy-bank"></i></div>
+                    <h3 class="category-title">Financial Dreams 💰</h3>
+                </div>
+                <input type="text" class="goal-input" id="financial-input" placeholder="What will we save for together?">
+                <button class="add-goal-btn" onclick="addGoal('financial')"><i class="fas fa-plus"></i> Add Financial Goal</button>
+                <ul class="goals-list" id="financial-goals"></ul>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <h2 style="color: #667eea; margin-bottom: 20px;">Our Journey Progress</h2>
+            <div class="motivation-quote" id="motivation-quote">
+                "The best time for new beginnings is now."
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+            </div>
+            <p id="progress-text">0 of 0 goals completed (0%)</p>
+            <p style="margin-top: 15px; color: #666; font-style: italic;">
+                Every small step brings us closer to our dreams! 🌟
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 6 + 's';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 6000);
+        }
+
+        setInterval(createHeart, 3000);
+
+        // Load saved data
+        let goals = JSON.parse(localStorage.getItem('coupleGoals2026')) || {};
+        let names = JSON.parse(localStorage.getItem('coupleNames2026')) || {};
+
+        // Load names
+        if (names.name1) document.getElementById('name1').value = names.name1;
+        if (names.name2) document.getElementById('name2').value = names.name2;
+
+        // Save names when changed
+        document.getElementById('name1').addEventListener('input', saveNames);
+        document.getElementById('name2').addEventListener('input', saveNames);
+
+        function saveNames() {
+            names.name1 = document.getElementById('name1').value;
+            names.name2 = document.getElementById('name2').value;
+            localStorage.setItem('coupleNames2026', JSON.stringify(names));
+        }
+
+        // Load existing goals
+        Object.keys(goals).forEach(category => {
+            goals[category].forEach(goal => {
+                addGoalToDOM(category, goal.text, goal.completed);
+            });
+        });
+
+        function addGoal(category) {
+            const input = document.getElementById(category + '-input');
+            const text = input.value.trim();
+            
+            if (text === '') return;
+            
+            if (!goals[category]) goals[category] = [];
+            goals[category].push({ text, completed: false });
+            
+            addGoalToDOM(category, text, false);
+            input.value = '';
+            saveGoals();
+            updateProgress();
+        }
+
+        function addGoalToDOM(category, text, completed) {
+            const goalsList = document.getElementById(category + '-goals');
+            const li = document.createElement('li');
+            li.className = 'goal-item' + (completed ? ' completed' : '');
+            
+            li.innerHTML = `
+                <input type="checkbox" class="goal-checkbox" ${completed ? 'checked' : ''} 
+                       onchange="toggleGoal('${category}', '${text}')">
+                <span class="goal-text">${text}</span>
+                <button class="delete-btn" onclick="deleteGoal('${category}', '${text}')">
+                    <i class="fas fa-trash"></i>
+                </button>
+            `;
+            
+            goalsList.appendChild(li);
+        }
+
+        function toggleGoal(category, text) {
+            const goal = goals[category].find(g => g.text === text);
+            if (goal) {
+                goal.completed = !goal.completed;
+                saveGoals();
+                updateProgress();
+                
+                // Update UI
+                const goalItems = document.querySelectorAll(`#${category}-goals .goal-item`);
+                goalItems.forEach(item => {
+                    if (item.querySelector('.goal-text').textContent === text) {
+                        if (goal.completed) {
+                            item.classList.add('completed');
+                        } else {
+                            item.classList.remove('completed');
+                        }
+                    }
+                });
+            }
+        }
+
+        function deleteGoal(category, text) {
+            goals[category] = goals[category].filter(g => g.text !== text);
+            saveGoals();
+            updateProgress();
+            
+            // Remove from UI
+            const goalItems = document.querySelectorAll(`#${category}-goals .goal-item`);
+            goalItems.forEach(item => {
+                if (item.querySelector('.goal-text').textContent === text) {
+                    item.remove();
+                }
+            });
+        }
+
+        function saveGoals() {
+            localStorage.setItem('coupleGoals2026', JSON.stringify(goals));
+        }
+
+        function updateProgress() {
+            let totalGoals = 0;
+            let completedGoals = 0;
+            
+            Object.values(goals).forEach(categoryGoals => {
+                categoryGoals.forEach(goal => {
+                    totalGoals++;
+                    if (goal.completed) completedGoals++;
+                });
+            });
+            
+            const percentage = totalGoals > 0 ? (completedGoals / totalGoals) * 100 : 0;
+            
+            document.getElementById('progress-fill').style.width = percentage + '%';
+            document.getElementById('progress-text').textContent = 
+                `${completedGoals} of ${totalGoals} goals completed (${Math.round(percentage)}%)`;
+            
+            // Update motivation quote
+            const quotes = [
+                "The best time for new beginnings is now.",
+                "Together we can achieve anything! 💪",
+                "Every step forward is progress! 🌟",
+                "Dream big, love bigger! ❤️",
+                "Our future is bright when we're together! ✨",
+                "Small steps lead to big adventures! 🗺️",
+                "Love grows when we dream together! 🌸"
+            ];
+            
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('motivation-quote').textContent = randomQuote;
+        }
+
+        // Allow adding goals with Enter key
+        document.querySelectorAll('.goal-input').forEach(input => {
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const category = this.id.replace('-input', '');
+                    addGoal(category);
+                }
+            });
+        });
+
+        // Initial progress update
+        updateProgress();
+    </script>
+</body>
+</html>
